@@ -5,23 +5,6 @@ import styled from 'styled-components'
 import { space, fontSize } from 'styled-system'
 import * as icons from '../src'
 
-const blacklist = [
-  'Icon'
-]
-const iconList = Object.keys(icons)
-  .filter(key => key !== 'Icon')
-  .map(key => (
-    <Box
-      key={key}
-      title={key}
-      m={3}>
-      {React.createElement(icons[key], {
-        title: key,
-        size: 64,
-      })}
-    </Box>
-  ))
-
 const Root = styled(Box)([], {
   fontFamily: 'system-ui, sans-serif',
   lineHeight: 1.5
@@ -31,7 +14,7 @@ const Title = styled('h1')([], space, fontSize)
 
 Title.defaultProps = {
   m: 0,
-  fontSize: [ 4, 5, 6 ]
+  fontSize: [ 5, null, 6 ]
 }
 
 const Heading = styled('h2')([], space, fontSize)
@@ -53,6 +36,33 @@ const Link = styled('a')([], {
     color: '#0cf'
   }
 })
+
+const Truncate = styled(Box)([], {
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis'
+})
+
+const iconList = Object.keys(icons)
+  .filter(key => key !== 'Icon')
+  .map(key => (
+    <Box
+      width={96}
+      key={key}
+      title={key}
+      m={3}
+      style={{
+        textAlign: 'center'
+      }}>
+      {React.createElement(icons[key], {
+        title: key,
+        size: 64,
+      })}
+      <Truncate fontSize={10}>
+        {key}
+      </Truncate>
+    </Box>
+  ))
 
 const App = props => (
   <React.Fragment>
