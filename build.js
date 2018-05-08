@@ -3,9 +3,12 @@ const fs = require('fs')
 const path = require('path')
 const readdir = require('recursive-readdir')
 const camelCase = require('lodash.camelcase')
+const upperFirst = require('lodash.upperfirst')
+const uniqBy = require('lodash.uniqby')
 
 const pkgPath = path.join(__dirname, './node_modules/material-design-icons')
-const outDir = path.join(__dirname, './icons')
+const outDir = path.join(__dirname, './svg')
+const examplesDir = path.join(__dirname, './examples')
 
 const ignore = (file, stats) => {
   if (stats.isDirectory()) return false
@@ -41,6 +44,24 @@ const writeFile = ({
   fs.writeFileSync(filename, content)
 }
 
+const exampleTemplate = ({ name }) => `import React from 'react'
+import { ${name} } from '..'
+
+export default props => (
+  <${name}
+    size={48}
+    color='#07c'
+  />
+)`
+
+const createExample = ({ name }) => {
+  const content = exampleTemplate({
+    name: upperFirst(name)
+  })
+  const filename = path.join(examplesDir, upperFirst(name) + '.js')
+  fs.writeFileSync(filename, content)
+}
+
 const docTemplate = ({
   icons = []
 }) => `
@@ -59,13 +80,16 @@ const copy = async () => {
   const files = await readdir(pkgPath, [
     ignore
   ])
-  const icons = files
+  const icons = uniqBy(files, file => path.basename(file))
     .filter(is24px)
     .map(readFile)
+    .sort((a, b) => a.name < b.name ? -1 : 1)
 
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir)
+  if (!fs.existsSync(examplesDir)) fs.mkdirSync(examplesDir)
 
   icons.forEach(writeFile)
+  icons.forEach(createExample)
   createDoc(icons)
 
   console.log(icons.length, ' icons copied')

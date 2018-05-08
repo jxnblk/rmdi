@@ -13,9 +13,14 @@ npm i rmdi
 
 ```jsx
 // import icons individually for better tree-shaking
-import {
-  Accessibility,
-} from 'rmdi'
+import { Accessibility } from 'rmdi'
+
+const App = props => (
+  <Accessibility
+    size={32}
+    color='tomato'
+  />
+)
 ```
 
 ```jsx
@@ -35,10 +40,24 @@ const App = props => (
 
 See the [icon list](ICONS.md) for a complete list of all icons available
 
+## Contributing
+
+```sh
+npm i
+```
+
+The build process will:
+
+1. Parse the `material-design-icons` package for SVG source code
+2. Copy the icons to the `svg/` folder
+3. Create an `examples/` folder
+4. Run [Pixo][pixo] on the `svg/` folder and output to `src/`
+5. Run Babel on the `src/` folder and output to `lib/`
+
 ## Todo
 
 - [x] create list of icon names markdown
-- [ ] update pixo to support circles
+- [-] update pixo to support circles
 - [ ] custom template
 - [ ] basic site
 
