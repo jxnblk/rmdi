@@ -1,31 +1,39 @@
 {
   "name": "rmdi",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "React Material Design Icons",
   "main": "index.js",
   "scripts": {
     "prepare": "./build.js && pixo svg && babel src -d lib",
     "clean": "rm -r svg src lib examples",
-    "start": "kit examples --mode library",
+    "start": "kit examples -om library",
+    "docs": "x0 docs/App.js -o",
+    "docs-build": "x0 build docs/App.js -d docs --static",
     "storybook": "kit-storybook examples",
     "test": "jest test.js"
   },
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
+  "dependencies": {
+    "styled-system": "^2.0.0"
+  },
   "devDependencies": {
     "@compositor/kit-dev": "^1.0.11",
     "@compositor/kit-snapshot": "^1.0.11",
     "@compositor/kit-storybook": "^1.0.11",
+    "@compositor/x0": "^4.0.2",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "grid-styled": "^4.1.0",
     "jest": "^22.4.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.uniqby": "^4.7.0",
     "lodash.upperfirst": "^4.3.1",
     "material-design-icons": "^3.0.1",
+    "ok-css": "^1.0.0-0",
     "pixo": "^1.1.0",
     "react": "^16.3.2",
     "react-test-renderer": "^16.3.2",
@@ -41,7 +49,7 @@
     "index": true,
     "iconComponent": true
   },
-  "dependencies": {
-    "styled-system": "^2.0.0"
+  "x0": {
+    "cssLibrary": "styled-components"
   }
 }
