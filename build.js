@@ -67,7 +67,7 @@ const docTemplate = ({
 }) => `
 # Icons (${icons.length})
 
-${icons.map(({ name }) => `- \`${name}\``).join('\n')}
+${icons.map(({ name }) => `- \`${upperFirst(name)}\``).join('\n')}
 `
 
 const createDoc = icons => {

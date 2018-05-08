@@ -26,7 +26,7 @@
     "lodash.uniqby": "^4.7.0",
     "lodash.upperfirst": "^4.3.1",
     "material-design-icons": "^3.0.1",
-    "pixo": "^1.0.4-0",
+    "pixo": "^1.1.0",
     "react": "^16.3.2",
     "react-test-renderer": "^16.3.2",
     "recursive-readdir": "^2.2.2",
