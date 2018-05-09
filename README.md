@@ -3,6 +3,8 @@
 
 Built with [Pixo][pixo], [Styled Components][sc], and [Styled System][sys]
 
+https://jxnblk.com/rmdi
+
 [pixo]: https://github.com/c8r/pixo
 [sys]: https://github.com/jxnblk/styled-system
 [sc]: https://github.com/styled-components/styled-components
