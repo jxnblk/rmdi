@@ -94,4 +94,12 @@ To run the development server:
 npm start
 ```
 
+## Related
+
+- [Google Material Design Icons](https://github.com/google/material-design-icons)
+- [Pixo][pixo]
+- [Styled Components][sc]
+- [Styled System][sys]
+- [React Icons](https://github.com/gorangajic/react-icons)
+
 [MIT License](LICENSE.md)
