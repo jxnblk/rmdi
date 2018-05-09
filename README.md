@@ -15,7 +15,7 @@ npm i rmdi
 
 ```jsx
 // import icons individually for better tree-shaking
-import { Accessibility } from 'rmdi'
+import Accessibility from 'rmdi/lib/Accessibility'
 
 const App = props => (
   <Accessibility
