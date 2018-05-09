@@ -92,11 +92,4 @@ To run the development server:
 npm start
 ```
 
-## Todo
-
-- [x] create list of icon names markdown
-- [x] update pixo to support circles
-- [ ] custom template
-- [ ] basic site
-
 [MIT License](LICENSE.md)
