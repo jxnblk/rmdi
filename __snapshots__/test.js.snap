@@ -5908,6 +5908,8 @@ exports[`Https renders 1`] = `
 </svg>
 `;
 
+exports[`Icon renders 1`] = `null`;
+
 exports[`Image renders 1`] = `
 <svg
   className="sc-geAPOV hHGUfZ"
